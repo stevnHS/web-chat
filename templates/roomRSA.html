@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'chatbox.html' %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.3.1/jsencrypt.min.js" integrity="sha512-9x7bM3/rvNOx7RoQm3vCwV8/twb32pnaW26S9GTYaunVXejrx/Xjq72QBfXPk7RtT5UijuQhurNIH4JlPm6CAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- AES Modal -->
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">配置私鑰檔案</h5>
+          {#<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+        </div>
+        <div class="modal-body">
+          <input type="file" accept=".pem" id="file">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn-go">確定</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">RSA聊天室</h5>
+                {#<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+                </div>
+                <div class="modal-body">
+                <a>名稱: </a>
+                <input type="text" id='name' placeholder='請輸入使用者名稱' >
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnCreate">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{{ url_for('static',filename='javascripts/roomRSA.js') }}"></script>
+{% endblock content %}

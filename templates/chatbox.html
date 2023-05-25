@@ -1,0 +1,51 @@
+{# https://bootsnipp.com/snippets/nNg98 #}
+<div class="container">
+  <div class="row justify-content-center">
+
+    {# 用戶清單 #}
+    <div class="col-md-3 ">
+    <div class="card contacts_card chat-card">
+
+      <div class="card-header">
+        <h3 class="text-white text-center">用戶清單</h3>
+      </div>
+      
+      <div class="card-body contacts_body">
+        <ui class="d-grid gap-2 list-group list-group-flush" id="userList">
+          {# 一個用戶 <button type="button" class="btn btn-secondary w-100 item-user" >value.name</button>#}
+        </ui>
+      </div>
+
+    </div>
+    </div>
+
+    {# 聊天室 #}
+    <div class="col-md-5">
+      <div class="card chat-card">
+
+        <div class="card-header msg_head">
+          <div class="d-flex bd-highlight">
+            <div class="user_info">
+                <h3 class="text-white" id="username"></h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body msg_card_body" id="messages">
+          {# 訊息 #}
+        </div>
+
+        {# 輸入框 #}
+        <div class="card-footer">
+          <div class="input-group">
+            <input type="text" id="message" class="form-control type_msg" placeholder="請輸入訊息...">
+            <button class="btn btn-primary message-submit" type="button" id="send">發送</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+

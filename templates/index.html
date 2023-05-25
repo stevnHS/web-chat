@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="text-center">
+            <img src="{{url_for('static', filename='blockchain.png')}}" class="rounded img-logo" alt="Logo">
+            <hr>
+            <h1><p class='text-white fw-bold'>{{name}}</p></h1>
+        </div>
+
+        <hr><hr>
+    
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body text-end">
+                    <h5 class="card-title text-center fw-bold">AES</h5>
+                    {# 說明文字 #}
+                    <p class="card-text text-start">
+                      使用者自己記住密碼（因為RPC不提供取得私鑰API，用戶要自己記住密碼），再利用PBKDF2對密碼延伸作為ECC加密的私鑰，<span class="text-danger fw-bold">透過ECDH金鑰交換得到共享金鑰作為AES密鑰加解密聊天室訊息。</span>
+                    </p>
+                    <a href="{{url_for('aes')}}" class="btn btn-outline-primary" id='btnAES'>開始聊天</a>
+  
+                  </div>
+              </div>
+            </div>
+    
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body text-end">
+                    <h5 class="card-title text-center fw-bold">RSA</h5>
+                    {# 說明文字 #}
+                    <p class="card-text text-start">註冊帳號同時會下載一個pem檔，由使用者保存RSA私鑰，並將公鑰上傳到合約中。<span class="text-danger fw-bold">傳送訊息使用對方的公鑰加密，接收訊息使用自己的私鑰解密。</span>因為RSA是非對稱加密無法解密自己傳送的訊息，合約中不再提供獲取聊天紀錄的功能（類似即焚模式的聊天室）。</p>
+                    <a href="{{url_for('rsa')}}" class="btn btn-outline-primary" id='btnRSA'>開始聊天</a>
+  
+                  </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body text-end">
+                  <h5 class="card-title text-center fw-bold">ECC</h5>
+                  {# 說明文字 #}
+                  <p class="card-text text-start">聊天室設計類似RSA的版本，但是加密物件好難處理😵‍💫。註冊帳號同時會下載一個txt檔，由使用者保存ECC私鑰，並將公鑰上傳到合約中。<span class="text-danger fw-bold">傳送訊息使用對方的公鑰加密，接收訊息使用自己的私鑰解密。</span></p>
+                  <a href="{{url_for('ecc')}}" class="btn btn-outline-primary" id='btnECC'>開始聊天</a>
+
+                </div>
+              </div>
+            </div>
+            
+        </div>
+    </div>
+
+{% endblock content %}

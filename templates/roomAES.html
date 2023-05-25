@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {% include 'chatbox.html' %}
+    <!-- AES Modal -->
+    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">AES聊天室</h5>
+          {#<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+        </div>
+        <div class="modal-body">
+          <a>輸入聊天密碼</a>
+          <input type="password" id='key'>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn-go">確定</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">AES聊天室</h5>
+                {#<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+                </div>
+                <div class="modal-body">
+                <a>名稱: </a>
+                <input type="text" id='name' placeholder='請輸入使用者名稱' >
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnCreate">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elliptic/6.5.4/elliptic.min.js" integrity="sha512-78ON1nQI4R5btOF/cPVb/msINn8P3K6yJ7n29r4J0M4SBLhTDmFqZgNQ7htZM16539xPvQDywpTdJaQPxuXxGw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
+    <script src="{{ url_for('static',filename='javascripts/roomAES.js') }}"></script>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- ECC Modal -->
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">配置私鑰檔案</h5>
+          {#<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+        </div>
+        <div class="modal-body">
+          <input type="file" accept=".txt" id="file">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn-go">確定</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">ECC聊天室</h5>
+            {#<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+            </div>
+            <div class="modal-body">
+            <a>名稱: </a>
+            <input type="text" id='name' placeholder='請輸入使用者名稱' >
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="btnCreate">確定</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'chatbox.html' %}
+<script src="{{ url_for('static',filename='javascripts/eccrypto-js.min.js') }}"></script>
+<script src="{{ url_for('static',filename='javascripts/roomECC.js') }}"></script>
+{% endblock content %}

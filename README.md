@@ -15,5 +15,4 @@
 python server.py
 
 ## Demo
-
-    ![alt text](/screenshot/root.jpg)
+![alt text](screenshot/root.jpg)
